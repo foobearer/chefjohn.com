@@ -3,7 +3,7 @@
 A single-page culinary portfolio: video hero, floating plate cutouts,
 scroll-driven editorial sections.
 
-**Live site:** https://USERNAME.github.io/REPO/
+**Live site:** https://www.chefjohn.fyi
 
 ## Structure
 
