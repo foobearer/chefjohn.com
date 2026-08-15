@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>John C. Paragas — Chef · Portfolio</title>
+<meta name="description" content="Chef John C. Paragas — Commis Chef II in Kuala Lumpur. Grand Champion, Pandan Cookfest 2023. Kitchens, dishes, credentials and cuisines." />
+
+<!-- tab icon — chef's toque in gold on the site's ink -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="alternate icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0B0908">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0B0908;
+  --bone:#EDE4D5;
+  --bone-soft:#C9BFB0;
+  --gold:#C9A227;
+  --gold-soft:#E2C778;
+  --oxblood:#6B1F27;
+  --edge:rgba(237,228,213,.16);
+  --serif:"Cormorant Garamond","Didot","Bodoni MT",Georgia,serif;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+  --pad:clamp(20px,4.2vw,76px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--bone);font-family:var(--serif);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--gold);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+
+/* ——— ATMOSPHERE ——— */
+#dust{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+.veil{position:fixed;inset:0;pointer-events:none}
+.veil.glow{z-index:0;background:
+  radial-gradient(58% 42% at 50% 34%, rgba(201,162,39,.12), transparent 62%),
+  radial-gradient(70% 50% at 50% 108%, rgba(107,31,39,.20), transparent 65%)}
+.veil.vig{z-index:6;background:radial-gradient(140% 100% at 50% 50%, transparent 42%, rgba(6,5,4,.72) 100%)}
+.veil.grain{z-index:7;opacity:.22;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:gr .7s steps(3) infinite}
+@keyframes gr{0%{transform:translate3d(0,0,0)}33%{transform:translate3d(-3%,2%,0)}
+  66%{transform:translate3d(2%,-3%,0)}100%{transform:translate3d(0,0,0)}}
+
+/* ——— HERO VIDEO ——— */
+.hero-video{position:absolute;inset:0;z-index:0;overflow:hidden;background:#000}
+.hero-video video{width:100%;height:100%;object-fit:cover;object-position:50% 36%;
+  filter:brightness(.52) contrast(1.06) saturate(.9) blur(1.1px);transform:scale(1.08);
+  will-change:transform,opacity}
+.hero-tint{position:absolute;inset:0;background:
+  radial-gradient(72% 55% at 50% 42%, rgba(11,9,8,.05), rgba(11,9,8,.78) 100%),
+  linear-gradient(180deg, rgba(11,9,8,.72) 0%, rgba(11,9,8,.22) 34%, rgba(11,9,8,.55) 72%, var(--ink) 100%)}
+.hero-heat{position:absolute;inset:0;mix-blend-mode:screen;opacity:.5;
+  background:radial-gradient(46% 34% at 62% 52%, rgba(255,146,42,.30), transparent 70%)}
+.vidnote{position:absolute;left:var(--pad);bottom:76px;z-index:4;display:flex;align-items:center;gap:11px;
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--bone-soft)}
+.vidnote .dot{width:6px;height:6px;border-radius:50%;background:#E2553B;
+  box-shadow:0 0 0 0 rgba(226,85,59,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(226,85,59,.55)}70%{box-shadow:0 0 0 11px rgba(226,85,59,0)}100%{box-shadow:0 0 0 0 rgba(226,85,59,0)}}
+@media (max-width:680px){.vidnote{display:none}}
+
+/* ——— FLOATING PLATE CUTOUTS ——— */
+.cutfield{position:absolute;left:0;right:0;top:-14vh;bottom:-14vh;z-index:1;
+  pointer-events:none;overflow:visible}
+.cut{position:absolute;transform:translate(-50%,-50%);will-change:transform}
+.cut .in{will-change:transform}
+.cut img{display:block;width:100%;height:auto;border-radius:50%;
+  box-shadow:0 0 0 1px rgba(201,162,39,.22), 0 34px 62px rgba(0,0,0,.62), 0 8px 18px rgba(0,0,0,.45)}
+@media (max-width:760px){.cutfield{opacity:.5}}
+
+/* ——— CHROME ——— */
+.chrome{position:fixed;z-index:20;font-family:var(--sans);font-weight:300;
+  letter-spacing:.30em;text-transform:uppercase;font-size:10px;color:var(--bone-soft)}
+.top{top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;
+  padding:22px var(--pad);mix-blend-mode:difference}
+.top .mark{font-family:var(--serif);font-size:15px;letter-spacing:.40em;color:var(--bone);text-transform:uppercase}
+.top .mark em{font-style:italic;letter-spacing:.05em;color:var(--gold-soft)}
+.top nav{display:flex;gap:20px}
+.top nav button{background:none;border:0;color:inherit;font:inherit;letter-spacing:.26em;
+  cursor:pointer;opacity:.5;transition:.5s cubic-bezier(.16,1,.3,1);padding:0}
+.top nav button:hover,.top nav button.on{opacity:1;color:var(--gold-soft)}
+@media (max-width:1140px){.top nav{display:none}}
+.rail{right:var(--pad);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;
+  align-items:flex-end;gap:14px}
+.rail .idx{font-family:var(--serif);font-size:32px;color:var(--bone);line-height:1;font-variant-numeric:tabular-nums}
+.rail .idx small{font-size:11px;color:var(--bone-soft);vertical-align:super;letter-spacing:.1em}
+.rail .track{width:1px;height:30vh;background:var(--edge);position:relative;overflow:hidden}
+.rail .fill{position:absolute;top:0;left:0;width:100%;height:0%;
+  background:linear-gradient(180deg,var(--gold-soft),var(--oxblood))}
+.rail .cap{writing-mode:vertical-rl;letter-spacing:.32em}
+@media (max-width:1140px){.rail{display:none}}
+.foot{bottom:0;left:0;right:0;display:flex;justify-content:space-between;
+  padding:20px var(--pad);mix-blend-mode:difference}
+@media (max-width:680px){.foot .hide-s{display:none}}
+
+/* ——— LOADER ——— */
+#loader{position:fixed;inset:0;z-index:60;background:var(--ink);display:grid;place-items:center;
+  transition:opacity 1.1s cubic-bezier(.16,1,.3,1),visibility 1.1s}
+#loader.done{opacity:0;visibility:hidden}
+#loader h6{font-family:var(--sans);font-weight:200;font-size:10px;letter-spacing:.5em;
+  text-transform:uppercase;color:var(--bone-soft);margin-bottom:16px;text-align:center}
+#loader .t{font-size:clamp(30px,6.5vw,72px);font-weight:300;letter-spacing:.12em;line-height:1;text-align:center}
+#loader .t em{font-style:italic;color:var(--gold-soft)}
+#loader .bar{width:min(200px,40vw);height:1px;background:var(--edge);margin:26px auto 0;overflow:hidden}
+#loader .bar i{display:block;height:100%;width:0%;background:var(--gold-soft);transition:width .45s ease}
+
+/* ——— SECTIONS ——— */
+#scroll-root{position:relative;z-index:5}
+.scene{position:relative;min-height:100svh;width:100%;padding:16vh var(--pad) 14vh;
+  display:flex;align-items:center;overflow:hidden}
+.scene.center{justify-content:center;text-align:center}
+.scene.center .eyebrow{justify-content:center}
+.scene.center .lede{margin-left:auto;margin-right:auto}
+.wrap{width:100%;max-width:1480px;margin:0 auto;position:relative;z-index:3}
+
+.ghost{position:absolute;left:-2vw;top:50%;transform:translateY(-50%);
+  font-size:clamp(110px,24vw,400px);line-height:.8;font-weight:300;color:transparent;
+  -webkit-text-stroke:1px rgba(237,228,213,.06);white-space:nowrap;pointer-events:none;
+  z-index:0;user-select:none}
+.ghost.r{left:auto;right:-2vw}
+
+.eyebrow{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.40em;
+  text-transform:uppercase;color:var(--gold-soft);display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.eyebrow .rule{display:block;width:clamp(28px,5vw,70px);height:1px;background:var(--gold);
+  opacity:.6;transform-origin:left center}
+
+.display{font-weight:300;line-height:.92;letter-spacing:-.015em;font-size:clamp(46px,10vw,180px);
+  overflow-wrap:normal;word-break:keep-all;hyphens:none}
+.display.hero{font-size:clamp(52px,12.5vw,240px)}
+.display .line{display:block;overflow:hidden;
+  padding:.14em .10em .28em;margin:-.14em -.10em -.24em}
+.display .line i{display:block;width:max-content;max-width:100%;
+  font-style:normal;white-space:nowrap}
+.center .display .line i{margin-left:auto;margin-right:auto}
+.display .it{font-style:italic;color:var(--gold-soft)}
+.hero-shadow{text-shadow:0 12px 70px rgba(0,0,0,.9), 0 2px 20px rgba(0,0,0,.8)}
+
+.lede{font-size:clamp(16.5px,1.5vw,24px);font-weight:300;line-height:1.55;max-width:46ch;
+  color:rgba(237,228,213,.8);margin-top:30px}
+.lede em{font-style:italic;color:var(--gold-soft)}
+.meta{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.30em;
+  text-transform:uppercase;color:var(--bone-soft)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4.5vw,80px);align-items:center}
+.grid2.wide-l{grid-template-columns:1.15fr .85fr}
+.grid2.wide-r{grid-template-columns:.85fr 1.15fr}
+@media (max-width:980px){.grid2,.grid2.wide-l,.grid2.wide-r{grid-template-columns:1fr;gap:34px}}
+
+/* ——— EDITORIAL PHOTO PLATES ——— */
+.plate-img{position:relative;overflow:hidden;background:#0F0D0B;border:1px solid var(--edge);
+  aspect-ratio:1/1}
+.plate-img img{width:100%;height:112%;object-fit:cover;display:block;
+  filter:saturate(.94) contrast(1.05) brightness(.9)}
+.plate-img .cap{position:absolute;left:0;right:0;bottom:0;padding:15px 17px;z-index:2;
+  background:linear-gradient(180deg,transparent,rgba(11,9,8,.88));
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.30em;text-transform:uppercase;
+  color:var(--bone);display:flex;justify-content:space-between;gap:12px}
+.plate-img .cap b{font-weight:400;color:var(--gold-soft)}
+.plate-img::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 40%,transparent 45%,rgba(11,9,8,.5) 100%)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,22px);align-items:start}
+.duo .plate-img:nth-child(even){margin-top:clamp(20px,5vw,70px)}
+@media (max-width:520px){.duo{grid-template-columns:1fr}
+  .duo .plate-img:nth-child(even){margin-top:0}}
+
+/* ——— TIMELINE ——— */
+.tl{display:grid;margin-top:26px}
+.tl .row{display:grid;grid-template-columns:150px 1fr auto;gap:20px;align-items:baseline;
+  padding:17px 0;border-top:1px solid var(--edge);position:relative}
+.tl .row::after{content:"";position:absolute;top:-1px;left:0;height:1px;width:0;
+  background:var(--gold);transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+.tl .row:hover::after{width:100%}
+.tl .yr{font-family:var(--sans);font-size:10.5px;letter-spacing:.22em;color:var(--gold-soft);line-height:1.6}
+.tl .what{font-size:clamp(17px,1.65vw,25px);font-weight:300;line-height:1.3}
+.tl .what em{font-style:italic;color:var(--gold-soft)}
+.tl .what small{display:block;font-family:var(--sans);font-size:11.5px;letter-spacing:.04em;
+  color:rgba(237,228,213,.56);margin-top:7px;line-height:1.6;max-width:56ch}
+.tl .where{font-family:var(--sans);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;
+  color:rgba(237,228,213,.42);white-space:nowrap}
+@media (max-width:760px){.tl .row{grid-template-columns:96px 1fr}.tl .where{display:none}}
+
+/* ——— AWARD FEATURE ——— */
+.award{border:1px solid rgba(201,162,39,.42);padding:clamp(22px,2.6vw,38px);margin-top:8px;
+  background:linear-gradient(180deg,rgba(201,162,39,.09),rgba(20,17,15,.55));
+  position:relative}
+.award .rib{font-family:var(--sans);font-size:9px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--ink);background:var(--gold);display:inline-block;padding:6px 12px 5px}
+.award h3{font-size:clamp(30px,3.6vw,58px);font-weight:300;line-height:1.05;margin-top:16px}
+.award h3 em{font-style:italic;color:var(--gold-soft)}
+.award .sub{font-family:var(--sans);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;
+  color:rgba(237,228,213,.55);margin-top:14px;line-height:2}
+.award p{font-size:16px;font-weight:300;line-height:1.6;color:rgba(237,228,213,.76);margin-top:16px;max-width:48ch}
+
+/* ——— CREDENTIALS ——— */
+.creds{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2vw,30px);margin-top:26px}
+@media (max-width:900px){.creds{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.creds{grid-template-columns:1fr}}
+.cred{border-top:1px solid var(--edge);padding-top:15px}
+.cred .kind{font-family:var(--sans);font-size:9px;letter-spacing:.34em;color:var(--gold);text-transform:uppercase}
+.cred h4{font-size:clamp(19px,1.9vw,27px);font-weight:300;margin-top:8px;line-height:1.2}
+.cred h4 em{font-style:italic;color:var(--gold-soft)}
+.cred .org{font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(237,228,213,.46);margin-top:9px}
+.cred p{font-size:14px;font-weight:300;line-height:1.55;color:rgba(237,228,213,.6);margin-top:9px;max-width:36ch}
+
+/* ——— CUISINES ——— */
+.cuis{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);margin-top:26px}
+@media (max-width:900px){.cuis{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.cuis{grid-template-columns:1fr}}
+.cu{border-top:1px solid var(--edge);padding-top:14px}
+.cu .flag{font-family:var(--sans);font-size:9px;letter-spacing:.34em;color:var(--gold);text-transform:uppercase}
+.cu h4{font-size:clamp(22px,2.2vw,32px);font-weight:300;font-style:italic;margin-top:7px}
+.cu p{font-size:14px;font-weight:300;line-height:1.55;color:rgba(237,228,213,.6);margin-top:8px;max-width:34ch}
+
+.card{border:1px solid var(--edge);padding:clamp(20px,2.3vw,32px);
+  background:linear-gradient(180deg,rgba(20,17,15,.8),rgba(20,17,15,.62))}
+.card h6{font-family:var(--sans);font-size:9.5px;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--gold-soft);margin-bottom:12px}
+.card p{font-size:16.5px;font-weight:300;line-height:1.6;color:rgba(237,228,213,.76)}
+.card p+p{margin-top:10px}
+
+.contact-list{margin-top:36px;display:grid;gap:2px;justify-items:center}
+.contact-list a,.contact-list span{font-size:clamp(18px,1.9vw,28px);font-weight:300;
+  color:rgba(237,228,213,.86);line-height:1.9;transition:color .5s cubic-bezier(.16,1,.3,1)}
+.contact-list a:hover{color:var(--gold-soft)}
+
+.cta{display:inline-flex;align-items:center;gap:14px;margin-top:30px;font-family:var(--sans);
+  font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:var(--bone);
+  border-bottom:1px solid var(--edge);padding-bottom:9px;transition:.7s cubic-bezier(.16,1,.3,1)}
+.cta .arw{display:inline-block;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.cta:hover{color:var(--gold-soft);border-color:var(--gold)}
+.cta:hover .arw{transform:translateX(9px)}
+.scrollhint{margin-top:44px;font-family:var(--sans);font-size:10px;letter-spacing:.4em;
+  text-transform:uppercase;color:var(--bone-soft)}
+.scrollhint i{display:block;width:1px;height:52px;background:linear-gradient(180deg,var(--gold),transparent);
+  margin:16px auto 0}
+@media (prefers-reduced-motion:reduce){.veil.grain{animation:none}}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div>
+    <h6>Portfolio</h6>
+    <div class="t">JOHN <em>Paragas</em></div>
+    <div class="bar"><i id="ldbar"></i></div>
+  </div>
+</div>
+
+<div class="veil glow"></div>
+<canvas id="dust"></canvas>
+<div class="veil vig"></div>
+<div class="veil grain"></div>
+
+<header class="chrome top">
+  <div class="mark">John <em>Paragas</em></div>
+  <nav id="nav">
+    <button data-go="0">Intro</button>
+    <button data-go="1">Experience</button>
+    <button data-go="2">Dishes</button>
+    <button data-go="3">Competitions</button>
+    <button data-go="4">Credentials</button>
+    <button data-go="5">Cuisines</button>
+    <button data-go="6">Gallery</button>
+    <button data-go="7">Contact</button>
+  </nav>
+</header>
+
+<aside class="chrome rail">
+  <div class="idx"><span id="railNo">01</span><small>/08</small></div>
+  <div class="track"><i class="fill" id="railFill"></i></div>
+  <div class="cap" id="railCap">Intro</div>
+</aside>
+
+<footer class="chrome foot">
+  <div class="hide-s">Chef · Culinary Portfolio</div>
+  <div>Scroll — <span id="pct">00</span>%</div>
+  <div class="hide-s">Kuala Lumpur, MY</div>
+</footer>
+
+<main id="scroll-root">
+
+  <!-- ══ 00 · THE NAME, OVER THE PASS ══ -->
+  <section class="scene center" id="s0" data-index="0" data-cap="Intro">
+    <div class="hero-video">
+      <video id="heroVid" poster="video/poster.jpg" autoplay muted loop playsinline preload="auto"
+             aria-label="Chef John Paragas cooking on the line">
+        <source src="video/kitchen.mp4" type="video/mp4">
+      </video>
+      <div class="hero-heat"></div>
+      <div class="hero-tint"></div>
+    </div>
+    <div class="vidnote"><span class="dot"></span>On the line — service</div>
+    <div class="cutfield" data-field="0"></div>
+    <div class="ghost" data-par="-24">CHEF</div>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="rule"></span>Chef · Culinary Portfolio<span class="rule"></span></p>
+      <h1 class="display hero hero-shadow">
+        <span class="line"><i>JOHN</i></span>
+        <span class="line"><i class="it">Paragas</i></span>
+      </h1>
+      <div class="scrollhint reveal">Scroll to begin<i></i></div>
+    </div>
+  </section>
+
+  <!-- ══ 01 · WORK EXPERIENCE ══ -->
+  <section class="scene" id="s1" data-index="1" data-cap="Experience">
+    <div class="cutfield" data-field="1"></div>
+    <div class="ghost r" data-par="20">BRIGADE</div>
+    <div class="wrap">
+      <div class="grid2 wide-l">
+        <div>
+          <p class="eyebrow reveal"><span class="rule"></span>Chapter I — The Kitchens</p>
+          <h2 class="display">
+            <span class="line"><i>WORK</i></span>
+            <span class="line"><i class="it">Experience</i></span>
+          </h2>
+          <p class="lede reveal">A culinary professional who progressed from commis responsibilities to <em>Chef de Partie</em> — running assigned sections, holding presentation and portion standards, and keeping a brigade moving through service.</p>
+          <div class="tl">
+            <div class="row reveal">
+              <div class="yr">Sept 2023 — Present</div>
+              <div class="what">Commis Chef II — <em>Alexis Bistro Garden</em>
+                <small>Mise en place to daily production requirements; assists senior chefs in preparing, cooking and presenting dishes to recipe and quality standards; manages cleaning, portioning, labelling and storage to control freshness and waste; monitors stock and communicates requirements to senior kitchen staff.</small></div>
+              <div class="where">Kuala Lumpur, Malaysia</div>
+            </div>
+            <div class="row reveal">
+              <div class="yr">July 2021 — June 2023</div>
+              <div class="what">Chef de Partie — <em>Cora's Manor and Garden Resort</em>
+                <small>Ran the day-to-day operation of an assigned section; held consistency in taste, appearance, temperature and presentation; organised daily mise en place; coordinated with sous and executive chefs across sections; guided and supported junior commis chefs; assisted with inventory control and ordering.</small></div>
+              <div class="where">Philippines</div>
+            </div>
+            <div class="row reveal">
+              <div class="yr">Feb — Apr 2019</div>
+              <div class="what">Demi Chef de Partie <em>(On-the-job training)</em> — <em>Racks Restaurant</em>
+                <small>Practical culinary training in a professional kitchen; assisted with ingredient preparation, mise en place, cooking, plating and presentation; learned and followed standard recipes and portioning requirements.</small></div>
+              <div class="where">Philippines</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="duo">
+            <figure class="plate-img reveal-img">
+              <img src="plates/fire.webp" alt="Chef John Paragas flambéing in the wok" loading="lazy">
+              <figcaption class="cap"><span>Flambé</span><b>N° 01</b></figcaption>
+            </figure>
+            <figure class="plate-img reveal-img">
+              <img src="plates/range.webp" alt="Chef John Paragas working the range" loading="lazy">
+              <figcaption class="cap"><span>The range</span><b>N° 02</b></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 02 · DISHES & MENUS ══ -->
+  <section class="scene" id="s2" data-index="2" data-cap="Dishes">
+    <div class="cutfield" data-field="2"></div>
+    <div class="ghost" data-par="-18">LA CARTE</div>
+    <div class="wrap">
+      <div class="grid2 wide-r">
+        <div>
+          <div class="duo">
+            <figure class="plate-img reveal-img">
+              <img src="plates/tuna.webp" alt="Seared tuna tataki with avocado, radish and edamame" loading="lazy">
+              <figcaption class="cap"><span>Tuna tataki</span><b>N° 03</b></figcaption>
+            </figure>
+            <figure class="plate-img reveal-img">
+              <img src="plates/linguine.webp" alt="Crab linguine with caviar" loading="lazy">
+              <figcaption class="cap"><span>Crab linguine</span><b>N° 04</b></figcaption>
+            </figure>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow reveal"><span class="rule"></span>Chapter II — Off the pass</p>
+          <h2 class="display">
+            <span class="line"><i>THE</i></span>
+            <span class="line"><i class="it">Dishes</i></span>
+          </h2>
+          <p class="lede reveal">Plates cooked and sent across the sections he has run — from bistro service in Kuala Lumpur to resort kitchens at home.</p>
+          <div class="creds" style="grid-template-columns:repeat(2,1fr)">
+            <div class="cred reveal"><div class="kind">Pasta &amp; Pizza</div><h4>Italian <em>section</em></h4>
+              <p>Spaghetti and meatballs, crab linguine with caviar, hand-stretched margherita from a live oven.</p></div>
+            <div class="cred reveal"><div class="kind">Cold &amp; Raw</div><h4>Starters &amp; <em>salads</em></h4>
+              <p>Seared tuna tataki with avocado, radish and edamame; caesar with house croutons and crisp pancetta.</p></div>
+            <div class="cred reveal"><div class="kind">Rice &amp; Noodle</div><h4>Asian <em>plates</em></h4>
+              <p>Nasi kerabu with salted egg and ulam, prawn sambal with brinjal, bee hoon, and long-simmered pho.</p></div>
+            <div class="cred reveal"><div class="kind">All-day</div><h4>Café &amp; <em>brunch</em></h4>
+              <p>Grilled sandwiches on house bread with hand-cut crisps, plus bakery work from NC II pastry training.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 03 · COMPETITIONS ══ -->
+  <section class="scene" id="s3" data-index="3" data-cap="Competitions">
+    <div class="cutfield" data-field="3"></div>
+    <div class="ghost r" data-par="22">CHAMPION</div>
+    <div class="wrap">
+      <div class="grid2 wide-l">
+        <div>
+          <p class="eyebrow reveal"><span class="rule"></span>Chapter III — On the clock</p>
+          <h2 class="display">
+            <span class="line"><i>THE</i></span>
+            <span class="line"><i class="it">Competition</i></span>
+          </h2>
+          <div class="award reveal">
+            <span class="rib">Grand Champion</span>
+            <h3>Pandan <em>Cookfest</em> 2023</h3>
+            <div class="sub">
+              Dulang Pandan · Bayan ng Mapandan<br>
+              Lalawigan ng Pangasinan, Philippines
+            </div>
+            <p>Awarded first place and a Certificate of Recognition for a pandan-led plate: butterflied tiger prawns filled with pandan butter, a rolled pandan omelette sliced into pinwheels, and a dark tamarind glaze.</p>
+          </div>
+        </div>
+        <div>
+          <div class="duo">
+            <figure class="plate-img reveal-img">
+              <img src="plates/champion.webp" alt="John C. Paragas holding the Pandan Cookfest Champion plaque and certificate" loading="lazy">
+              <figcaption class="cap"><span>Grand Champion</span><b>N° 05</b></figcaption>
+            </figure>
+            <figure class="plate-img reveal-img">
+              <img src="plates/cookfest.webp" alt="The winning competition plate — pandan butter prawns with pandan roulade" loading="lazy">
+              <figcaption class="cap"><span>Winning plate</span><b>N° 06</b></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 04 · CREDENTIALS ══ -->
+  <section class="scene" id="s4" data-index="4" data-cap="Credentials">
+    <div class="cutfield" data-field="4"></div>
+    <div class="ghost" data-par="-16">TESDA</div>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="rule"></span>Chapter IV — Education &amp; certification</p>
+      <h2 class="display"><span class="line"><i>THE <span class="it">Credentials</span></i></span></h2>
+      <p class="lede reveal">A four-year hospitality degree, backed by three national competency certificates from TESDA.</p>
+      <div class="creds">
+        <div class="cred reveal">
+          <div class="kind">Degree</div>
+          <h4>BS Hotel &amp; Restaurant <em>Management</em></h4>
+          <div class="org">Urdaneta University · 2017 — 2021</div>
+          <p>Four-year bachelor's programme covering hotel and restaurant operations, food service and hospitality management.</p>
+        </div>
+        <div class="cred reveal">
+          <div class="kind">National Certificate II</div>
+          <h4>Bread &amp; Pastry <em>Production</em></h4>
+          <div class="org">TESDA, Philippines · 22 Nov 2018</div>
+          <p>Preparing and producing breads, pastries, cakes and other baked products; proper use of baking tools, equipment and production techniques.</p>
+        </div>
+        <div class="cred reveal">
+          <div class="kind">National Certificate II</div>
+          <h4>Food &amp; Beverage <em>Services</em></h4>
+          <div class="org">TESDA, Philippines · 15 Dec 2018</div>
+          <p>Food and beverage service procedures, guest service, table preparation, workplace hygiene and professional service standards.</p>
+        </div>
+        <div class="cred reveal">
+          <div class="kind">National Certificate II</div>
+          <h4><em>Housekeeping</em></h4>
+          <div class="org">TESDA, Philippines · 22 Nov 2018</div>
+          <p>Professional cleaning, sanitation and workplace organisation; maintaining hygiene and safety standards in hospitality environments.</p>
+        </div>
+        <div class="cred reveal">
+          <div class="kind">Award</div>
+          <h4>Grand Champion — <em>Pandan Cookfest</em></h4>
+          <div class="org">Mapandan, Pangasinan · 2023</div>
+          <p>Certificate of Recognition awarded to John C. Paragas at Dulang Pandan, Pandan Cookfest 2023.</p>
+        </div>
+        <div class="cred reveal">
+          <div class="kind">Kitchen</div>
+          <h4>Food safety &amp; <em>sanitation</em></h4>
+          <div class="org">Practised across every posting</div>
+          <p>Maintaining food safety and sanitation requirements, correct storage procedures, and stock rotation in high-volume kitchens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 05 · CUISINES ══ -->
+  <section class="scene" id="s5" data-index="5" data-cap="Cuisines">
+    <div class="cutfield" data-field="5"></div>
+    <div class="ghost r" data-par="18">TERROIR</div>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="rule"></span>Chapter V — Learned on the job</p>
+      <h2 class="display"><span class="line"><i>THE <span class="it">Cuisines</span></i></span></h2>
+      <p class="lede reveal">Kitchens across the Philippines and Malaysia, each leaving a technique behind.</p>
+      <div class="cuis">
+        <div class="cu reveal"><div class="flag">Italy</div><h4>Italiana</h4>
+          <p>Fresh pasta, ragù and meatballs, hand-stretched pizza from a live oven.</p></div>
+        <div class="cu reveal"><div class="flag">Malaysia</div><h4>Malay &amp; Nyonya</h4>
+          <p>Nasi kerabu, sambal from scratch, curries and ulam — cooked daily in Kuala Lumpur.</p></div>
+        <div class="cu reveal"><div class="flag">Vietnam</div><h4>Vietnamese</h4>
+          <p>Long-simmered pho broth, fresh herbs and balance.</p></div>
+        <div class="cu reveal"><div class="flag">China</div><h4>Wok &amp; Noodle</h4>
+          <p>Bee hoon, wok hei and high-flame line cooking.</p></div>
+        <div class="cu reveal"><div class="flag">Japan</div><h4>Japanese-influenced</h4>
+          <p>Tataki, knife work and restraint on the plate.</p></div>
+        <div class="cu reveal"><div class="flag">Philippines</div><h4>Filipino</h4>
+          <p>Home cuisine and resort banquet cooking, plus the pandan work that won Cookfest.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 06 · GALLERY ══ -->
+  <section class="scene" id="s6" data-index="6" data-cap="Gallery">
+    <div class="cutfield" data-field="6"></div>
+    <div class="ghost" data-par="-14">PLATES</div>
+    <div class="wrap">
+      <div class="grid2 wide-r">
+        <div>
+          <div class="duo">
+            <figure class="plate-img reveal-img">
+              <img src="plates/pizza.webp" alt="Margherita pizza on a wooden board" loading="lazy">
+              <figcaption class="cap"><span>Margherita</span><b>N° 07</b></figcaption>
+            </figure>
+            <figure class="plate-img reveal-img">
+              <img src="plates/beehoon.webp" alt="Bee hoon with chicken and shredded vegetables" loading="lazy">
+              <figcaption class="cap"><span>Bee hoon</span><b>N° 08</b></figcaption>
+            </figure>
+            <figure class="plate-img reveal-img">
+              <img src="plates/kerabu.webp" alt="Nasi kerabu set with salted egg and curry" loading="lazy">
+              <figcaption class="cap"><span>Nasi kerabu</span><b>N° 09</b></figcaption>
+            </figure>
+            <figure class="plate-img reveal-img">
+              <img src="plates/sandwich.webp" alt="Grilled sandwich with house crisps" loading="lazy">
+              <figcaption class="cap"><span>Grilled sandwich</span><b>N° 10</b></figcaption>
+            </figure>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow reveal"><span class="rule"></span>Chapter VI — The work</p>
+          <h2 class="display"><span class="line"><i>THE</i></span><span class="line"><i class="it">Gallery</i></span></h2>
+          <div class="card reveal" style="margin-top:28px">
+            <h6>The plates</h6>
+            <p>Every photograph and every floating plate on this page is John's own work, shot on the pass during service.</p>
+            <p>To add more, drop square images into <em>plates/</em> or circular cutouts into <em>cutouts/</em> and list them in the layout table at the top of the script.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 07 · CONTACT ══ -->
+  <section class="scene center" id="s7" data-index="7" data-cap="Contact">
+    <div class="cutfield" data-field="7"></div>
+    <div class="ghost" data-par="-14">MERCI</div>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="rule"></span>Chapter VII — Get in touch<span class="rule"></span></p>
+      <h2 class="display"><span class="line"><i>GET IN</i></span><span class="line"><i class="it">Touch</i></span></h2>
+      <p class="lede reveal">Open to chef de partie and senior kitchen roles, menu development and competition work.</p>
+      <div class="contact-list reveal">
+        <a href="mailto:paragasjohn98@gmail.com">paragasjohn98@gmail.com</a>
+        <a href="tel:+60142512872">+60 14-251 2872</a>
+        <a href="https://www.chefjohn.com" target="_blank" rel="noopener">www.chefjohn.com</a>
+        <span>Kuala Lumpur, Malaysia</span>
+      </div>
+      <a class="cta reveal" href="#s0" id="topLink">Back to the top <span class="arw">→</span></a>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis/dist/lenis.min.js"></script>
+<script>
+if (!window.Lenis) document.write('<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"><\/script>');
+</script>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   JOHN C. PARAGAS — culinary portfolio
+   Video hero · floating plate cutouts · GSAP ScrollTrigger · Lenis
+   ══════════════════════════════════════════════════════════ */
+(function () {
+'use strict';
+
+var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var MOBILE  = matchMedia('(max-width: 760px)').matches;
+
+/* ── THE FLOATING FIELD ──────────────────────────────────────
+   id  filename in cutouts/ (without .webp) · x,y position in %
+   w   width in vmin · d depth 0 (far, soft, slow) → 1 (near, sharp, fast)
+   ──────────────────────────────────────────────────────────── */
+var FIELD = {
+  0: [ {id:'tuna-tataki',  x:9,  y:24, w:15, d:.7},
+       {id:'margherita',   x:91, y:70, w:16, d:.75},
+       {id:'pho',          x:16, y:80, w:12, d:.45},
+       {id:'crab-linguine',x:88, y:22, w:11, d:.3} ],
+
+  1: [ {id:'spaghetti-meatballs', x:12, y:16, w:17, d:.7},
+       {id:'bee-hoon',            x:90, y:84, w:19, d:.85},
+       {id:'pho',                 x:6,  y:74, w:14, d:.5},
+       {id:'caesar',              x:52, y:6,  w:11, d:.28} ],
+
+  2: [ {id:'meatballs',    x:14, y:10, w:15, d:.65},
+       {id:'caesar',       x:88, y:24, w:17, d:.7},
+       {id:'margherita',   x:80, y:86, w:19, d:.85},
+       {id:'prawn-rice',   x:8,  y:78, w:14, d:.5},
+       {id:'tuna-tataki',  x:44, y:96, w:11, d:.3} ],
+
+  3: [ {id:'prawn-sambal', x:86, y:18, w:19, d:.8},
+       {id:'nasi-kerabu',  x:10, y:84, w:17, d:.72},
+       {id:'banana-leaf',  x:78, y:82, w:14, d:.5},
+       {id:'crab-linguine',x:7,  y:18, w:11, d:.32} ],
+
+  4: [ {id:'caesar',       x:10, y:18, w:15, d:.65},
+       {id:'meatballs',    x:90, y:26, w:16, d:.7},
+       {id:'prawn-rice',   x:86, y:84, w:14, d:.55},
+       {id:'bee-hoon',     x:12, y:88, w:13, d:.48},
+       {id:'pho',          x:48, y:96, w:11, d:.3} ],
+
+  5: [ {id:'margherita',   x:10, y:16, w:18, d:.8},
+       {id:'pho',          x:90, y:24, w:16, d:.7},
+       {id:'banana-leaf',  x:84, y:82, w:15, d:.6},
+       {id:'bee-hoon',     x:14, y:86, w:14, d:.55},
+       {id:'crab-linguine',x:50, y:96, w:12, d:.35},
+       {id:'prawn-rice',   x:34, y:6,  w:10, d:.25} ],
+
+  6: [ {id:'spaghetti-meatballs', x:90, y:18, w:15, d:.7},
+       {id:'prawn-rice',          x:10, y:22, w:13, d:.55},
+       {id:'tuna-tataki',         x:92, y:78, w:16, d:.65},
+       {id:'caesar',              x:16, y:90, w:14, d:.5} ],
+
+  7: [ {id:'pho',           x:12, y:24, w:18, d:.75},
+       {id:'margherita',    x:88, y:28, w:17, d:.7},
+       {id:'prawn-sambal',  x:80, y:82, w:15, d:.6},
+       {id:'crab-linguine', x:18, y:84, w:14, d:.55},
+       {id:'caesar',        x:50, y:96, w:11, d:.3} ]
+};
+
+var built = [];
+Object.keys(FIELD).forEach(function (k) {
+  var host = document.querySelector('.cutfield[data-field="' + k + '"]');
+  if (!host) return;
+  FIELD[k].forEach(function (it) {
+    var wrap = document.createElement('div');
+    wrap.className = 'cut';
+    wrap.style.left = it.x + '%';
+    wrap.style.top  = it.y + '%';
+    wrap.style.width = (MOBILE ? it.w * 1.15 : it.w) + 'vmin';
+    wrap.style.zIndex = String(Math.round(it.d * 10));
+
+    var inner = document.createElement('div');
+    inner.className = 'in';
+
+    var img = document.createElement('img');
+    img.src = 'cutouts/' + it.id + '.webp';
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.style.filter = 'blur(' + ((1 - it.d) * 4).toFixed(2) + 'px) brightness(' +
+      (0.6 + it.d * 0.4).toFixed(2) + ') saturate(' + (0.72 + it.d * 0.28).toFixed(2) + ')';
+    img.style.opacity = (0.42 + it.d * 0.58).toFixed(2);
+
+    inner.appendChild(img);
+    wrap.appendChild(inner);
+    host.appendChild(wrap);
+    built.push({ el: wrap, inner: inner, img: img, d: it.d, section: host.closest('.scene') });
+  });
+});
+
+/* ── HERO VIDEO ── */
+(function heroVideo() {
+  var v = document.getElementById('heroVid');
+  if (!v) return;
+  var hero = document.getElementById('s0');
+  function tryPlay() { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  v.addEventListener('loadeddata', tryPlay);
+  tryPlay();
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.isIntersecting ? tryPlay() : v.pause(); });
+    }, { threshold: 0.02 }).observe(hero);
+  }
+  if (!REDUCED) {
+    gsap.fromTo(v, { scale: 1.08, yPercent: 0 },
+      { scale: 1.2, yPercent: 8, ease: 'none',
+        scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.8 } });
+    gsap.to('.hero-video', { opacity: 0.25, ease: 'none',
+      scrollTrigger: { trigger: hero, start: 'center top', end: 'bottom top', scrub: 0.8 } });
+  }
+})();
+
+/* ── LENIS + SCROLLTRIGGER ── */
+gsap.registerPlugin(ScrollTrigger);
+var lenis = null;
+if (window.Lenis && !REDUCED) {
+  lenis = new Lenis({
+    duration: 1.5,
+    easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+    smoothWheel: true, wheelMultiplier: 0.9, touchMultiplier: 1.4
+  });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+  gsap.ticker.lagSmoothing(0);
+}
+function glide(target, duration) {
+  duration = duration || 2.1;
+  if (lenis) { lenis.scrollTo(target, { duration: duration, easing: function (t) { return 1 - Math.pow(1 - t, 4); } }); return; }
+  var el = typeof target === 'string' ? document.querySelector(target) : null;
+  el ? el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+     : scrollTo({ top: typeof target === 'number' ? target : 0, behavior: 'smooth' });
+}
+
+/* ── CUTOUT MOTION ── */
+built.forEach(function (c, i) {
+  gsap.fromTo(c.el, { y: (90 + c.d * 300) }, { y: -(90 + c.d * 300), ease: 'none',
+    scrollTrigger: { trigger: c.section, start: 'top bottom', end: 'bottom top', scrub: 0.6 + c.d * 0.9 } });
+
+  gsap.fromTo(c.img, { rotate: -4 - c.d * 5 }, { rotate: 4 + c.d * 5, ease: 'none',
+    scrollTrigger: { trigger: c.section, start: 'top bottom', end: 'bottom top', scrub: 1.4 } });
+
+  gsap.fromTo(c.el, { scale: 0.86, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 1.9, ease: 'expo.out', delay: (i % 6) * 0.06,
+      scrollTrigger: { trigger: c.section, start: 'top 92%', toggleActions: 'play none none reverse' } });
+
+  if (!REDUCED) {
+    gsap.to(c.inner, {
+      y: (6 + c.d * 16) * (i % 2 ? -1 : 1),
+      x: (3 + c.d * 7) * (i % 3 ? 1 : -1),
+      duration: 4.5 + (i % 5) * 1.3,
+      repeat: -1, yoyo: true, ease: 'sine.inOut', delay: (i % 7) * 0.4
+    });
+  }
+});
+
+/* ── HEADLINE AUTO-FIT ──────────────────────────────────────
+   Words are never broken or hyphenated. If a whole word is wider than its
+   column the heading scales down, so nothing is ever cut off. */
+function fitDisplay() {
+  var heads = document.querySelectorAll('.display');
+  for (var h = 0; h < heads.length; h++) {
+    var d = heads[h];
+    d.style.fontSize = '';
+    var avail = d.clientWidth;
+    if (!avail) continue;
+    var widest = 0, items = d.querySelectorAll('.line i');
+    for (var j = 0; j < items.length; j++) widest = Math.max(widest, items[j].offsetWidth);
+    if (widest > avail) {
+      var fs = parseFloat(getComputedStyle(d).fontSize);
+      d.style.fontSize = Math.floor(fs * (avail / widest) * 0.99) + 'px';
+    }
+  }
+}
+fitDisplay();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { fitDisplay(); ScrollTrigger.refresh(); });
+var fitT;
+addEventListener('resize', function () { clearTimeout(fitT); fitT = setTimeout(fitDisplay, 120); });
+
+/* ── SECTION REVEALS ──
+   NOTE: no blur filters are applied to text at any point. Copy stays crisp
+   through the whole scroll; only opacity and position are animated, and any
+   compositing hint is cleared the moment a reveal finishes. */
+var sections = gsap.utils.toArray('.scene');
+var navBtns  = Array.prototype.slice.call(document.querySelectorAll('#nav button'));
+
+sections.forEach(function (sec, i) {
+  var lines   = sec.querySelectorAll('.display .line i');
+  var reveals = sec.querySelectorAll('.reveal');
+  var rules   = sec.querySelectorAll('.eyebrow .rule');
+  var figs    = sec.querySelectorAll('.reveal-img');
+
+  gsap.set(lines,   { yPercent: 140, rotate: 2.2, opacity: 0 });
+  gsap.set(reveals, { y: 34, opacity: 0 });
+  gsap.set(rules,   { scaleX: 0 });
+  gsap.set(figs,    { clipPath: 'inset(100% 0% 0% 0%)' });
+  figs.forEach(function (f) { gsap.set(f.querySelector('img'), { scale: 1.22 }); });
+
+  var tl = gsap.timeline({
+    scrollTrigger: { trigger: sec, start: 'top 72%', end: 'top 18%', toggleActions: 'play none none reverse' },
+    // drop the transform layer once the text has landed — keeps glyphs pin-sharp
+    onComplete: function () { gsap.set([lines, reveals], { clearProps: 'willChange,filter' }); }
+  });
+  tl.to(lines,   { yPercent: 0, rotate: 0, opacity: 1, duration: 1.5, ease: 'expo.out', stagger: 0.085 })
+    .to(rules,   { scaleX: 1, duration: 1.2, ease: 'expo.out' }, 0.15)
+    .to(figs,    { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.8, ease: 'expo.inOut', stagger: 0.12 }, 0.05)
+    .to(reveals, { y: 0, opacity: 1, duration: 1.25, ease: 'expo.out', stagger: 0.07 }, 0.2);
+
+  figs.forEach(function (f) {
+    var img = f.querySelector('img');
+    gsap.to(img, { scale: 1, duration: 2.2, ease: 'expo.out',
+      scrollTrigger: { trigger: sec, start: 'top 72%', toggleActions: 'play none none reverse' } });
+    gsap.fromTo(img, { yPercent: -5 }, { yPercent: 5, ease: 'none',
+      scrollTrigger: { trigger: f, start: 'top bottom', end: 'bottom top', scrub: 1.2 } });
+  });
+
+  // exit drift — opacity and position only, deliberately no blur
+  gsap.to(sec.querySelector('.wrap'), { y: -60, opacity: 0, ease: 'none',
+    scrollTrigger: { trigger: sec, start: 'center center', end: 'bottom top', scrub: 1.1 } });
+
+  var ghost = sec.querySelector('.ghost');
+  if (ghost) {
+    var par = parseFloat(ghost.dataset.par || 0);
+    gsap.fromTo(ghost, { yPercent: -50, x: 0 },
+      { x: par * 6, yPercent: -50 + par * 0.6, ease: 'none',
+        scrollTrigger: { trigger: sec, start: 'top bottom', end: 'bottom top', scrub: 1.4 } });
+  }
+
+  ScrollTrigger.create({ trigger: sec, start: 'top 55%', end: 'bottom 55%',
+    onToggle: function (self) {
+      if (!self.isActive) return;
+      document.getElementById('railNo').textContent = String(i + 1).padStart(2, '0');
+      document.getElementById('railCap').textContent = sec.dataset.cap;
+      navBtns.forEach(function (b, k) { b.classList.toggle('on', k === i); });
+    } });
+});
+
+ScrollTrigger.create({ trigger: '#scroll-root', start: 'top top', end: 'bottom bottom',
+  onUpdate: function (self) {
+    var p = document.getElementById('pct');
+    if (p) p.textContent = String(Math.round(self.progress * 100)).padStart(2, '0');
+    var f = document.getElementById('railFill');
+    if (f) f.style.height = (self.progress * 100) + '%';
+  } });
+
+navBtns.forEach(function (b) { b.addEventListener('click', function () { glide('#s' + b.dataset.go, 2.1); }); });
+document.getElementById('topLink').addEventListener('click', function (e) { e.preventDefault(); glide(0, 2.6); });
+
+/* ── POINTER PARALLAX ── */
+if (!REDUCED && !MOBILE) {
+  var px = 0, py = 0, tx = 0, ty = 0;
+  addEventListener('pointermove', function (e) {
+    tx = (e.clientX / innerWidth - 0.5) * 2;
+    ty = (e.clientY / innerHeight - 0.5) * 2;
+  }, { passive: true });
+  gsap.ticker.add(function () {
+    px += (tx - px) * 0.045; py += (ty - py) * 0.045;
+    for (var i = 0; i < built.length; i++) {
+      var c = built[i];
+      c.img.style.marginLeft = (-px * 26 * c.d).toFixed(1) + 'px';
+      c.img.style.marginTop  = (-py * 18 * c.d).toFixed(1) + 'px';
+    }
+  });
+}
+
+/* ── DUST ── */
+(function dust() {
+  var cv = document.getElementById('dust'), ctx = cv.getContext('2d');
+  var dpr = Math.min(devicePixelRatio || 1, 2), W, H, parts;
+  function size() {
+    W = cv.width = innerWidth * dpr; H = cv.height = innerHeight * dpr;
+    cv.style.width = innerWidth + 'px'; cv.style.height = innerHeight + 'px';
+  }
+  function seed() {
+    var n = MOBILE ? 55 : 130; parts = [];
+    for (var i = 0; i < n; i++) parts.push({
+      x: Math.random() * W, y: Math.random() * H,
+      r: (Math.random() * 1.7 + 0.4) * dpr,
+      vx: (Math.random() - 0.5) * 0.16 * dpr,
+      vy: -(Math.random() * 0.22 + 0.04) * dpr,
+      a: Math.random() * 0.5 + 0.12, p: Math.random() * 6.28
+    });
+  }
+  size(); seed();
+  addEventListener('resize', function () { size(); seed(); });
+  var t = 0;
+  function loop() {
+    requestAnimationFrame(loop);
+    t += 0.016;
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      p.x += p.vx + Math.sin(t * 0.5 + p.p) * 0.14 * dpr;
+      p.y += p.vy;
+      if (p.y < -10) { p.y = H + 10; p.x = Math.random() * W; }
+      if (p.x < -10) p.x = W + 10; if (p.x > W + 10) p.x = -10;
+      var a = p.a * (0.55 + 0.45 * Math.sin(t * 1.2 + p.p));
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba(232,214,168,' + a.toFixed(3) + ')';
+      ctx.arc(p.x, p.y, p.r, 0, 6.283);
+      ctx.fill();
+    }
+  }
+  if (!REDUCED) loop();
+})();
+
+/* ── BOOT ── */
+var total = built.length, done = 0, finished = false;
+function tick() {
+  done++;
+  var bar = document.getElementById('ldbar');
+  if (bar) bar.style.width = Math.min(100, Math.round(done / Math.max(total, 1) * 100)) + '%';
+  if (done >= total) finish();
+}
+built.forEach(function (c) {
+  if (c.img.complete) tick();
+  else { c.img.addEventListener('load', tick); c.img.addEventListener('error', tick); }
+});
+function finish() {
+  if (finished) return; finished = true;
+  document.getElementById('loader').classList.add('done');
+  fitDisplay();
+  ScrollTrigger.refresh();
+}
+setTimeout(finish, 3500);
+addEventListener('load', function () { fitDisplay(); ScrollTrigger.refresh(); });
+addEventListener('resize', function () { ScrollTrigger.refresh(); });
+})();
+</script>
+</body>
+</html>

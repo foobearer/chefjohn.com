@@ -1,0 +1,37 @@
+# Netlify configuration — static site, no build step.
+# Netlify reads this on every deploy, so the site settings in the UI can stay empty.
+
+[build]
+  publish = "."
+
+# ── Caching ──────────────────────────────────────────────────────────────
+# index.html is always revalidated, so an edit + push goes live immediately.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Photos, cutouts and video never change under the same filename —
+# cache them hard so repeat visits are instant.
+[[headers]]
+  for = "/cutouts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/plates/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ── Basic hardening ──────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
